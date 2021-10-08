@@ -1,0 +1,1650 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/8/2021 4:46:37 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-SH66EM7G"
+  DTS:CreatorName="LAPTOP-SH66EM7G\jorge"
+  DTS:DTSID="{7013D7A9-3166-40C4-BE74-7FD7B7B24673}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.128"
+  DTS:LocaleID="13322"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{63D419B7-6961-46CD-B52C-8BAB29F6DA26}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Americans.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{31252171-7EB0-4B36-B860-75C81A4699C4}"
+      DTS:ObjectName="localhost.Americans.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=Americans;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgd/QAcqIlkaWGy7r11PqogAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACqEqppqrijR3iX7FfaBMj/o+ISabzDBOMGtenSqCoSOgAAAAAOgAAAAAIAACAAAADwUhzSaIULj3KyUbFk1Fu34UhfyjM+jZEU9GXkQ+qxKiAAAAD2OnVmHX4NYtOSaWOSnLx8tcyPA78f6all2mB2ird77kAAAAB+CTaRN4JazhQpin5XZgsOhBf8LPtsBKlulPdLqTWq0o8sq4IqKBg8LwOAJxPCAuxJzSTDjyZ0YRKmBjozWksw</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Americans_DW.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2D1979A6-5840-4594-A3BC-142508F1BABC}"
+      DTS:ObjectName="localhost.Americans_DW.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=Americans_DW;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgd/QAcqIlkaWGy7r11PqogAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAASVYrw6GTDbPRpR96I61pKJ+ULZfkfGdazp6GpIxao1QAAAAAOgAAAAAIAACAAAACbk+3X/RboV/PMQ9UVtOwEX6dKdpj/8j3Smzgl1q5zniAAAABsjJc7EL/iddyVv4eEl3kkNtZcHKwMITkjuOYZ0M8dWUAAAAAZ6+jG8hJhzWpS0mXYSENCBBl+RArKCNlfUgNT5EBboQHtaJ2mn9f0t3n2Kjt6AWaicjbtUYZ8058+L+gLjic4</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Canal"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{328EFD8B-2C2B-4709-A1DF-8492C1D3A723}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Canal"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Canal\Conversión Datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Conversión Datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Canal\Conversión Datos.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Canal\Conversión Datos.Inputs[Data Conversion Input].Columns[Canal]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Canal"
+                      lineageId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Canal]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Canal\Conversión Datos.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Canal\Conversión Datos.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Canal\Conversión Datos.Outputs[Data Conversion Output].Columns[Copia de Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Canal\Conversión Datos.Outputs[Data Conversion Output].Columns[Copia de Canal]"
+                      name="Copia de Canal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Canal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Canal\Conversión Datos.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Canal\Conversión Datos.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Canal\Conversión Datos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Canal\Conversión Datos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Canal\Conversión Datos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Canal\Conversión Datos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Canal\OLE DB Destino Americans DW"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destino Americans DW"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DIM_CANAL]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Canal\OLE DB Destino Americans DW.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Americans_DW.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Americans_DW.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Canal\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Canal\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input].Columns[Canal_Id]"
+                      cachedDataType="i4"
+                      cachedName="Canal_Id"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Canal\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input].ExternalColumns[Canal_id]"
+                      lineageId="Package\Canal\Ordenar Ascendentemente.Outputs[Sort Output].Columns[Canal_Id]" />
+                    <inputColumn
+                      refId="Package\Canal\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input].Columns[Copia de Canal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copia de Canal"
+                      externalMetadataColumnId="Package\Canal\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input].ExternalColumns[Canal]"
+                      lineageId="Package\Canal\Ordenar Ascendentemente.Outputs[Sort Output].Columns[Copia de Canal]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Canal\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Canal\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input].ExternalColumns[Canal_id]"
+                      dataType="i4"
+                      name="Canal_id" />
+                    <externalMetadataColumn
+                      refId="Package\Canal\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input].ExternalColumns[Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Canal" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Canal\OLE DB Destino Americans DW.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Canal\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Canal\OLE DB Destino Americans DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Canal\OLE DB Destino Americans DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Canal\OLE DB Destino Americans DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Canal\OLE DB Destino Americans DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Canal\OLE DB Origen Americans"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Origen Americans"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[CANAL]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Canal\OLE DB Origen Americans.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Americans.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Americans.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Canal_Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Output].ExternalColumns[Canal_Id]"
+                      lineageId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Canal_Id]"
+                      name="Canal_Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Canal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Output].ExternalColumns[Canal]"
+                      length="20"
+                      lineageId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Canal]"
+                      name="Canal"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Output].ExternalColumns[Canal_Id]"
+                      dataType="i4"
+                      name="Canal_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Output].ExternalColumns[Canal]"
+                      dataType="wstr"
+                      length="20"
+                      name="Canal" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[Canal_Id]"
+                      dataType="i4"
+                      lineageId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[Canal_Id]"
+                      name="Canal_Id" />
+                    <outputColumn
+                      refId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[Canal]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[Canal]"
+                      name="Canal" />
+                    <outputColumn
+                      refId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Canal\Ordenar Ascendentemente"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Ordenar Ascendentemente"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Canal\Ordenar Ascendentemente.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Canal\Ordenar Ascendentemente.Inputs[Sort Input].Columns[Canal_Id]"
+                      cachedDataType="i4"
+                      cachedName="Canal_Id"
+                      lineageId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Canal_Id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Canal\Ordenar Ascendentemente.Inputs[Sort Input].Columns[Canal]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Canal"
+                      lineageId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Canal]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Canal\Ordenar Ascendentemente.Inputs[Sort Input].Columns[Copia de Canal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copia de Canal"
+                      lineageId="Package\Canal\Conversión Datos.Outputs[Data Conversion Output].Columns[Copia de Canal]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Canal\Ordenar Ascendentemente.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Canal\Ordenar Ascendentemente.Outputs[Sort Output].Columns[Canal_Id]"
+                      dataType="i4"
+                      lineageId="Package\Canal\Ordenar Ascendentemente.Outputs[Sort Output].Columns[Canal_Id]"
+                      name="Canal_Id"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Canal_Id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Canal\Ordenar Ascendentemente.Outputs[Sort Output].Columns[Canal]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Canal\Ordenar Ascendentemente.Outputs[Sort Output].Columns[Canal]"
+                      name="Canal">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Canal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Canal\Ordenar Ascendentemente.Outputs[Sort Output].Columns[Copia de Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Canal\Ordenar Ascendentemente.Outputs[Sort Output].Columns[Copia de Canal]"
+                      name="Copia de Canal">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Canal\Conversión Datos.Outputs[Data Conversion Output].Columns[Copia de Canal]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Canal.Paths[Data Conversion Output]"
+              endId="Package\Canal\Ordenar Ascendentemente.Inputs[Sort Input]"
+              name="Data Conversion Output"
+              startId="Package\Canal\Conversión Datos.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Canal.Paths[OLE DB Source Output]"
+              endId="Package\Canal\Conversión Datos.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Canal\OLE DB Origen Americans.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Canal.Paths[Sort Output]"
+              endId="Package\Canal\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input]"
+              name="Sort Output"
+              startId="Package\Canal\Ordenar Ascendentemente.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Vendedor"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2966EEC2-02BB-4C0C-AD84-165F5B67DDFF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Vendedor"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Vendedor\Concatenar Nombre y Apellido"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Concatenar Nombre y Apellido"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Vendedor\Concatenar Nombre y Apellido.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Vendedor\Concatenar Nombre y Apellido.Inputs[Derived Column Input].Columns[Nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Nombre"
+                      lineageId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Nombre]" />
+                    <inputColumn
+                      refId="Package\Vendedor\Concatenar Nombre y Apellido.Inputs[Derived Column Input].Columns[Apellido]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Apellido"
+                      lineageId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Apellido]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Vendedor\Concatenar Nombre y Apellido.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Vendedor\Concatenar Nombre y Apellido.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Vendedor\Concatenar Nombre y Apellido.Outputs[Derived Column Output].Columns[NombreCompleto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="511"
+                      lineageId="Package\Vendedor\Concatenar Nombre y Apellido.Outputs[Derived Column Output].Columns[NombreCompleto]"
+                      name="NombreCompleto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Nombre]} + " " + #{Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Apellido]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">Nombre + " " + Apellido</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Vendedor\Concatenar Nombre y Apellido.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Vendedor\Concatenar Nombre y Apellido.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Vendedor\Concatenar Nombre y Apellido.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Vendedor\Concatenar Nombre y Apellido.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Vendedor\Concatenar Nombre y Apellido.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Vendedor\Concatenar Nombre y Apellido.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Vendedor\Convertir Datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Convertir Datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Vendedor\Convertir Datos.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Vendedor\Convertir Datos.Inputs[Data Conversion Input].Columns[NombreCompleto]"
+                      cachedDataType="wstr"
+                      cachedLength="511"
+                      cachedName="NombreCompleto"
+                      lineageId="Package\Vendedor\Concatenar Nombre y Apellido.Outputs[Derived Column Output].Columns[NombreCompleto]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Vendedor\Convertir Datos.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Vendedor\Convertir Datos.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Vendedor\Convertir Datos.Outputs[Data Conversion Output].Columns[Copia de NombreCompleto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\Vendedor\Convertir Datos.Outputs[Data Conversion Output].Columns[Copia de NombreCompleto]"
+                      name="Copia de NombreCompleto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Vendedor\Concatenar Nombre y Apellido.Outputs[Derived Column Output].Columns[NombreCompleto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Vendedor\Convertir Datos.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Vendedor\Convertir Datos.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Vendedor\Convertir Datos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Vendedor\Convertir Datos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Vendedor\Convertir Datos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Vendedor\Convertir Datos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Vendedor\OLE DB Destino Americans DW"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destino Americans DW"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DIM_VENDEDOR]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Vendedor\OLE DB Destino Americans DW.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Americans_DW.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Americans_DW.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Vendedor\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Vendedor\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input].Columns[ID_VENDEDOR]"
+                      cachedDataType="i2"
+                      cachedName="ID_VENDEDOR"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Vendedor\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input].ExternalColumns[Id_vendedor]"
+                      lineageId="Package\Vendedor\Ordenar Ascendentemente.Outputs[Sort Output].Columns[ID_VENDEDOR]" />
+                    <inputColumn
+                      refId="Package\Vendedor\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input].Columns[Copia de NombreCompleto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="300"
+                      cachedName="Copia de NombreCompleto"
+                      externalMetadataColumnId="Package\Vendedor\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input].ExternalColumns[Nombre_completo]"
+                      lineageId="Package\Vendedor\Ordenar Ascendentemente.Outputs[Sort Output].Columns[Copia de NombreCompleto]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Vendedor\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Vendedor\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input].ExternalColumns[Id_vendedor]"
+                      dataType="i4"
+                      name="Id_vendedor" />
+                    <externalMetadataColumn
+                      refId="Package\Vendedor\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input].ExternalColumns[Nombre_completo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="300"
+                      name="Nombre_completo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Vendedor\OLE DB Destino Americans DW.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Vendedor\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Vendedor\OLE DB Destino Americans DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Vendedor\OLE DB Destino Americans DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Vendedor\OLE DB Destino Americans DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Vendedor\OLE DB Destino Americans DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Vendedor\OLE DB Origen Americans"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Origen Americans"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[VENDEDORES]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Vendedor\OLE DB Origen Americans.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Americans.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Americans.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[ID_VENDEDOR]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].ExternalColumns[ID_VENDEDOR]"
+                      lineageId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[ID_VENDEDOR]"
+                      name="ID_VENDEDOR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].ExternalColumns[Nombre]"
+                      length="255"
+                      lineageId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Nombre]"
+                      name="Nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Apellido]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].ExternalColumns[Apellido]"
+                      length="255"
+                      lineageId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Apellido]"
+                      name="Apellido"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[SUCURSAL_ID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].ExternalColumns[SUCURSAL_ID]"
+                      lineageId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[SUCURSAL_ID]"
+                      name="SUCURSAL_ID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].ExternalColumns[ID_VENDEDOR]"
+                      dataType="i2"
+                      name="ID_VENDEDOR" />
+                    <externalMetadataColumn
+                      refId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].ExternalColumns[Nombre]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].ExternalColumns[Apellido]"
+                      dataType="wstr"
+                      length="255"
+                      name="Apellido" />
+                    <externalMetadataColumn
+                      refId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].ExternalColumns[SUCURSAL_ID]"
+                      dataType="i2"
+                      name="SUCURSAL_ID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[ID_VENDEDOR]"
+                      dataType="i2"
+                      lineageId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[ID_VENDEDOR]"
+                      name="ID_VENDEDOR" />
+                    <outputColumn
+                      refId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[Nombre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[Nombre]"
+                      name="Nombre" />
+                    <outputColumn
+                      refId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[Apellido]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[Apellido]"
+                      name="Apellido" />
+                    <outputColumn
+                      refId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[SUCURSAL_ID]"
+                      dataType="i2"
+                      lineageId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[SUCURSAL_ID]"
+                      name="SUCURSAL_ID" />
+                    <outputColumn
+                      refId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Vendedor\Ordenar Ascendentemente"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Ordenar Ascendentemente"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Vendedor\Ordenar Ascendentemente.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Vendedor\Ordenar Ascendentemente.Inputs[Sort Input].Columns[ID_VENDEDOR]"
+                      cachedDataType="i2"
+                      cachedName="ID_VENDEDOR"
+                      lineageId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[ID_VENDEDOR]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Vendedor\Ordenar Ascendentemente.Inputs[Sort Input].Columns[Nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Nombre"
+                      lineageId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Nombre]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Vendedor\Ordenar Ascendentemente.Inputs[Sort Input].Columns[Apellido]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Apellido"
+                      lineageId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Apellido]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Vendedor\Ordenar Ascendentemente.Inputs[Sort Input].Columns[SUCURSAL_ID]"
+                      cachedDataType="i2"
+                      cachedName="SUCURSAL_ID"
+                      lineageId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[SUCURSAL_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Vendedor\Ordenar Ascendentemente.Inputs[Sort Input].Columns[NombreCompleto]"
+                      cachedDataType="wstr"
+                      cachedLength="511"
+                      cachedName="NombreCompleto"
+                      lineageId="Package\Vendedor\Concatenar Nombre y Apellido.Outputs[Derived Column Output].Columns[NombreCompleto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Vendedor\Ordenar Ascendentemente.Inputs[Sort Input].Columns[Copia de NombreCompleto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="300"
+                      cachedName="Copia de NombreCompleto"
+                      lineageId="Package\Vendedor\Convertir Datos.Outputs[Data Conversion Output].Columns[Copia de NombreCompleto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Vendedor\Ordenar Ascendentemente.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Vendedor\Ordenar Ascendentemente.Outputs[Sort Output].Columns[ID_VENDEDOR]"
+                      dataType="i2"
+                      lineageId="Package\Vendedor\Ordenar Ascendentemente.Outputs[Sort Output].Columns[ID_VENDEDOR]"
+                      name="ID_VENDEDOR"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[ID_VENDEDOR]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Vendedor\Ordenar Ascendentemente.Outputs[Sort Output].Columns[Nombre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Vendedor\Ordenar Ascendentemente.Outputs[Sort Output].Columns[Nombre]"
+                      name="Nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Vendedor\Ordenar Ascendentemente.Outputs[Sort Output].Columns[Apellido]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Vendedor\Ordenar Ascendentemente.Outputs[Sort Output].Columns[Apellido]"
+                      name="Apellido">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[Apellido]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Vendedor\Ordenar Ascendentemente.Outputs[Sort Output].Columns[SUCURSAL_ID]"
+                      dataType="i2"
+                      lineageId="Package\Vendedor\Ordenar Ascendentemente.Outputs[Sort Output].Columns[SUCURSAL_ID]"
+                      name="SUCURSAL_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output].Columns[SUCURSAL_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Vendedor\Ordenar Ascendentemente.Outputs[Sort Output].Columns[NombreCompleto]"
+                      dataType="wstr"
+                      length="511"
+                      lineageId="Package\Vendedor\Ordenar Ascendentemente.Outputs[Sort Output].Columns[NombreCompleto]"
+                      name="NombreCompleto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Vendedor\Concatenar Nombre y Apellido.Outputs[Derived Column Output].Columns[NombreCompleto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Vendedor\Ordenar Ascendentemente.Outputs[Sort Output].Columns[Copia de NombreCompleto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="300"
+                      lineageId="Package\Vendedor\Ordenar Ascendentemente.Outputs[Sort Output].Columns[Copia de NombreCompleto]"
+                      name="Copia de NombreCompleto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Vendedor\Convertir Datos.Outputs[Data Conversion Output].Columns[Copia de NombreCompleto]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Vendedor.Paths[Data Conversion Output]"
+              endId="Package\Vendedor\Ordenar Ascendentemente.Inputs[Sort Input]"
+              name="Data Conversion Output"
+              startId="Package\Vendedor\Convertir Datos.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Vendedor.Paths[Derived Column Output]"
+              endId="Package\Vendedor\Convertir Datos.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Vendedor\Concatenar Nombre y Apellido.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Vendedor.Paths[OLE DB Source Output]"
+              endId="Package\Vendedor\Concatenar Nombre y Apellido.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Vendedor\OLE DB Origen Americans.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Vendedor.Paths[Sort Output]"
+              endId="Package\Vendedor\OLE DB Destino Americans DW.Inputs[OLE DB Destination Input]"
+              name="Sort Output"
+              startId="Package\Vendedor\Ordenar Ascendentemente.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="123.2,41.6"
+          Id="Package\Vendedor"
+          TopLeft="140.714288110636,142.235296112443" />
+        <NodeLayout
+          Size="104,41.6"
+          Id="Package\Canal"
+          TopLeft="376.428577839112,142.235296112443" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Vendedor">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="200.8,41.6"
+          Id="Package\Vendedor\OLE DB Origen Americans"
+          TopLeft="63.5714296540436,88.7058835970078" />
+        <NodeLayout
+          Size="224.8,41.6"
+          Id="Package\Vendedor\OLE DB Destino Americans DW"
+          TopLeft="455.000007748604,383.117652431904" />
+        <NodeLayout
+          Size="220.8,41.6"
+          Id="Package\Vendedor\Concatenar Nombre y Apellido"
+          TopLeft="314.285719637968,29.8235298300284" />
+        <EdgeLayout
+          Id="Package\Vendedor.Paths[OLE DB Source Output]"
+          TopLeft="264.371429654044,109.505883597008">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49.9142899839248,-58.8823537669794"
+              Start="0,0"
+              End="42.4142899839248,-58.8823537669794">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="20.9571449919624,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.9571449919624,0"
+                    Point2="24.9571449919624,0"
+                    Point3="24.9571449919624,-4" />
+                  <mssgle:LineSegment
+                    End="24.9571449919624,-54.8823537669794" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.9571449919624,-54.8823537669794"
+                    Point2="24.9571449919624,-58.8823537669794"
+                    Point3="28.9571449919624,-58.8823537669794" />
+                  <mssgle:LineSegment
+                    End="42.4142899839248,-58.8823537669794" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Vendedor\Convertir Datos"
+          TopLeft="489.285722618201,167.470590584006" />
+        <EdgeLayout
+          Id="Package\Vendedor.Paths[Derived Column Output]"
+          TopLeft="424.685719637968,71.4235298300284">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140.200002980232,96.0470607539774"
+              Start="0,0"
+              End="140.200002980232,88.5470607539774">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.0235303769887" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.0235303769887"
+                    Point2="0,48.0235303769887"
+                    Point3="4,48.0235303769887" />
+                  <mssgle:LineSegment
+                    End="136.200002980232,48.0235303769887" />
+                  <mssgle:CubicBezierSegment
+                    Point1="136.200002980232,48.0235303769887"
+                    Point2="140.200002980232,48.0235303769887"
+                    Point3="140.200002980232,52.0235303769887" />
+                  <mssgle:LineSegment
+                    End="140.200002980232,88.5470607539774" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\Vendedor\Ordenar Ascendentemente"
+          TopLeft="214.285717934978,296.705886514129" />
+        <EdgeLayout
+          Id="Package\Vendedor.Paths[Data Conversion Output]"
+          TopLeft="564.885722618201,209.070590584006">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-248.600004683223,87.6352959301235"
+              Start="0,0"
+              End="-248.600004683223,80.1352959301235">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.8176479650617" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.8176479650617"
+                    Point2="0,43.8176479650617"
+                    Point3="-4,43.8176479650617" />
+                  <mssgle:LineSegment
+                    End="-244.600004683223,43.8176479650617" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-244.600004683223,43.8176479650617"
+                    Point2="-248.600004683223,43.8176479650617"
+                    Point3="-248.600004683223,47.8176479650617" />
+                  <mssgle:LineSegment
+                    End="-248.600004683223,80.1352959301235" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Vendedor.Paths[Sort Output]"
+          TopLeft="316.285717934978,338.305886514129">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="251.114289813626,44.8117659177748"
+              Start="0,0"
+              End="251.114289813626,37.3117659177748">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.4058829588874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.4058829588874"
+                    Point2="0,22.4058829588874"
+                    Point3="4,22.4058829588874" />
+                  <mssgle:LineSegment
+                    End="247.114289813626,22.4058829588874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="247.114289813626,22.4058829588874"
+                    Point2="251.114289813626,22.4058829588874"
+                    Point3="251.114289813626,26.4058829588874" />
+                  <mssgle:LineSegment
+                    End="251.114289813626,37.3117659177748" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Vendedor\OLE DB Origen Americans">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Vendedor\OLE DB Destino Americans DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Canal">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="200.8,41.6"
+          Id="Package\Canal\OLE DB Origen Americans"
+          TopLeft="150,153" />
+        <NodeLayout
+          Size="224.8,41.6"
+          Id="Package\Canal\OLE DB Destino Americans DW"
+          TopLeft="614,390" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\Canal\Conversión Datos"
+          TopLeft="345,243" />
+        <EdgeLayout
+          Id="Package\Canal.Paths[OLE DB Source Output]"
+          TopLeft="250.4,194.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="175,48.4"
+              Start="0,0"
+              End="175,40.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2"
+                    Point2="0,24.2"
+                    Point3="4,24.2" />
+                  <mssgle:LineSegment
+                    End="171,24.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="171,24.2"
+                    Point2="175,24.2"
+                    Point3="175,28.2" />
+                  <mssgle:LineSegment
+                    End="175,40.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\Canal\Ordenar Ascendentemente"
+          TopLeft="491,322" />
+        <EdgeLayout
+          Id="Package\Canal.Paths[Data Conversion Output]"
+          TopLeft="425.4,284.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="167.6,37.4"
+              Start="0,0"
+              End="167.6,29.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.7"
+                    Point2="0,18.7"
+                    Point3="4,18.7" />
+                  <mssgle:LineSegment
+                    End="163.6,18.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="163.6,18.7"
+                    Point2="167.6,18.7"
+                    Point3="167.6,22.7" />
+                  <mssgle:LineSegment
+                    End="167.6,29.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Canal.Paths[Sort Output]"
+          TopLeft="593,363.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="133.4,26.4"
+              Start="0,0"
+              End="133.4,18.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.20000000000002" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.20000000000002"
+                    Point2="0,13.2"
+                    Point3="4,13.2" />
+                  <mssgle:LineSegment
+                    End="129.4,13.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="129.4,13.2"
+                    Point2="133.4,13.2"
+                    Point3="133.4,17.2" />
+                  <mssgle:LineSegment
+                    End="133.4,18.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Canal\OLE DB Origen Americans">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Canal\OLE DB Destino Americans DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
